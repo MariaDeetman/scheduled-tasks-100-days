@@ -11,7 +11,7 @@ weekday = now.weekday()
 
 date_of_birth = dt.datetime(year= 1995, month= 11, day= 16)
 
-if weekday == 4:
+if weekday == 1:
     with open("quotes.txt") as quotes:
         quotes_list = quotes.readlines()
         selection = random.choice(quotes_list)
