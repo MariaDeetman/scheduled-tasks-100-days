@@ -11,18 +11,18 @@ weekday = now.weekday()
 
 date_of_birth = dt.datetime(year= 1995, month= 11, day= 16)
 
-if weekday == 1:
-    with open("quotes.txt") as quotes:
-        quotes_list = quotes.readlines()
-        selection = random.choice(quotes_list)
 
-    email_text = (f"Subject: Motivational Quote for Today \n\n"
-                  f"{selection}")
+with open("quotes.txt") as quotes:
+    quotes_list = quotes.readlines()
+    selection = random.choice(quotes_list)
 
-    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
-        connection.starttls()
-        connection.login(user=my_email, password=app_password)
-        connection.sendmail(from_addr=my_email,
-                            to_addrs="maria_deetman@hotmail.com",
-                            msg=email_text
-                            )
+email_text = (f"Subject: Motivational Quote for Today \n\n"
+                f"{selection}")
+
+with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+    connection.starttls()
+    connection.login(user=my_email, password=app_password)
+    connection.sendmail(from_addr=my_email,
+                        to_addrs="maria_deetman@hotmail.com",
+                        msg=email_text
+                        )
